@@ -11,21 +11,29 @@ public class Produto implements Serializable{
 	private Integer idProduto;
 	private String nome;
 	private Double preco;
+	private Integer quantidade;
 	private String imagem;
+	
 	public Produto() {
 		super();
 	}
-	public Produto(Integer idProduto, String nome, Double preco, String imagem) {
+	
+	
+	public Produto(Integer idProduto, String nome, Double preco, Integer quantidade, String imagem) {
 		super();
 		this.idProduto = idProduto;
 		this.nome = nome;
 		this.preco = preco;
+		this.quantidade = quantidade;
 		this.imagem = imagem;
 	}
+
 	@Override
 	public String toString() {
-		return "Produto [idProduto=" + idProduto + ", nome=" + nome + ", preco=" + preco + ", imagem=" + imagem + "]";
+		return "Produto [idProduto=" + idProduto + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
+				+ ", imagem=" + imagem + "]";
 	}
+
 	public Integer getIdProduto() {
 		return idProduto;
 	}
@@ -52,6 +60,14 @@ public class Produto implements Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
 	}
 	
 	
