@@ -1,0 +1,6 @@
+[
+ {"codigo" : 1,  "nome" : "livroJavaOracle", "preco":200},
+ {"codigo" : 2,  "nome" : "livroJquery",     "preco":100},
+ {"codigo" : 3,  "nome" : "livrojson",       "preco":120},
+ {"codigo" : 4,  "nome" : "livroDeitel",     "preco":5}
+]
