@@ -8,7 +8,7 @@ public class Produto implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer idProduto;
+	private Integer codigo;
 	private String nome;
 	private Double preco;
 	private Integer quantidade;
@@ -19,17 +19,17 @@ public class Produto implements Serializable{
 	}
 	
 	
-	public Produto(Integer idProduto, String nome, Double preco) {
+	public Produto(Integer codigo, String nome, Double preco) {
 		super();
-		this.idProduto = idProduto;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.preco = preco;
 	}
 
 
-	public Produto(Integer idProduto, String nome, Double preco, Integer quantidade, String imagem) {
+	public Produto(Integer codigo, String nome, Double preco, Integer quantidade, String imagem) {
 		super();
-		this.idProduto = idProduto;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.preco = preco;
 		this.quantidade = quantidade;
@@ -38,15 +38,15 @@ public class Produto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Produto [idProduto=" + idProduto + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
+		return "Produto [codigo=" + codigo + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
 				+ ", imagem=" + imagem + "]";
 	}
 
-	public Integer getIdProduto() {
-		return idProduto;
+	public Integer getCodigo() {
+		return codigo;
 	}
-	public void setIdProduto(Integer idProduto) {
-		this.idProduto = idProduto;
+	public void setCodigo(Integer idProduto) {
+		this.codigo = idProduto;
 	}
 	public String getNome() {
 		return nome;

@@ -14,7 +14,7 @@ public class DaoProduto extends Dao {
 				PreparedStatement.RETURN_GENERATED_KEYS);
 		stmt.setString(1, v.getNome());
 		stmt.setDouble(2, v.getPreco());
-		stmt.setInt(3, v.getQuantidade());
+		stmt.setInt   (3, v.getQuantidade());
 		stmt.setString(4, v.getImagem());
 		stmt.execute();
 		rs = stmt.getGeneratedKeys();
@@ -32,7 +32,7 @@ public class DaoProduto extends Dao {
 		Produto v = null;
 		if (rs.next()) {
 			v = new Produto();
-			v.setIdProduto(rs.getInt(1));
+			v.setCodigo(rs.getInt(1));
 			v.setNome(rs.getString(2));
 
 			v.setPreco(rs.getDouble(3));
@@ -46,11 +46,11 @@ public class DaoProduto extends Dao {
 	public List<Produto> findAll() throws Exception {
 		open();
 		List<Produto> lista = new ArrayList<Produto>();
-		stmt = con.prepareStatement("select * from vitrine");
+		stmt = con.prepareStatement("select * from produto");
 		rs = stmt.executeQuery();
 		while (rs.next()) {
 			Produto v = new Produto();
-			v.setIdProduto(rs.getInt(1));
+			v.setCodigo(rs.getInt(1));
 			v.setNome(rs.getString(2));
 			v.setPreco(rs.getDouble(3));
 			v.setQuantidade(rs.getInt(4));
@@ -61,4 +61,20 @@ public class DaoProduto extends Dao {
 		return lista;
 	}
 
+	public static void main(String[] args) {
+		
+		try {
+			
+		DaoProduto dp = new DaoProduto();
+		
+		List<Produto>produtos = dp.findAll();
+		
+		for(Produto prd : produtos){
+			System.out.println("-->>>>" + prd);
+		}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

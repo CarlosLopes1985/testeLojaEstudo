@@ -32,7 +32,7 @@ public class Dao {
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		con = DriverManager.getConnection
-				("jdbc:mysql://localhost:3306/treinoLoja","root","371casa1");
+				("jdbc:mysql://localhost:3306/lojaArtesanato","root","371casa1");
 	}
 	
 	/**

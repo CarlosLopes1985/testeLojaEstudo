@@ -15,9 +15,9 @@ $(document).ready(function(){
 	 //entrada 
 	var produtos=[];
 	var listaProdutos="";
+
 	//saida (volto nela)
-	
-	
+	//Inicializa a cesta
 	var cesta={
 		 lstprodutos : [],
 		 produtosHTML : [],

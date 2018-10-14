@@ -21,7 +21,7 @@ public class VendaDao extends Dao{
 		  stmt2 = new BasicDBObject();
 		       stmt2.put("id", v.getId());
 		       stmt2.put("data", v.getData());
-		       stmt2.put("codigo", p.getIdProduto());
+		       stmt2.put("codigo", p.getCodigo());
 		       stmt2.put("nome", p.getNome());
 		       stmt2.put("preco", p.getPreco());
 		      tabela.insert(stmt2);
