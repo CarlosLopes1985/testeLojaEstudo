@@ -1,6 +1,8 @@
 package control;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,11 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
 
 import dao.DaoVendaProduto;
+import dao.Pedido;
 import entity.Produto;
+import manager.ManagerBean;
 
 /**
  * Servlet implementation class Controller
@@ -31,13 +33,20 @@ public class Controller extends HttpServlet {
 	}
 
 	/**
+	 * @throws IOException 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		
+		ManagerBean mb = new ManagerBean();
+		
+		List<Produto>prod = mb.getListaInterna();
+		Gson gson = new Gson();
+		
+		String texto = gson.toJson(prod);
+		
+		response.getWriter().print(texto);
 	}
 
 	/**
@@ -48,15 +57,21 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-
+			
+			DaoVendaProduto daoVP = new DaoVendaProduto();
 			Gson gson = new Gson();
 			Produto produtos[] = gson.fromJson(request.getParameter("produtos"), Produto[].class);
 			
+			Pedido ped = new Pedido();
+			ped.setDataPedido(new Date());
+			
+			int idPedido = daoVP.gravarPedido(ped);
+			
+			ped.setIdPedido(idPedido);
+			
 			for (Produto p : produtos) {
 				
-				DaoVendaProduto daoVP = new DaoVendaProduto();
-				
-				daoVP.gravarVenda(p, null, null);
+				daoVP.gravarVenda(ped, null, null,p.getCodigo());
 				
 				response.getWriter().print("<br/>" + p);
 				
@@ -64,7 +79,7 @@ public class Controller extends HttpServlet {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
 		}
 

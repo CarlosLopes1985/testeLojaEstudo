@@ -34,7 +34,6 @@ public class DaoProduto extends Dao {
 			v = new Produto();
 			v.setCodigo(rs.getInt(1));
 			v.setNome(rs.getString(2));
-
 			v.setPreco(rs.getDouble(3));
 			v.setQuantidade(rs.getInt(4));
 			v.setImagem(rs.getString(5));

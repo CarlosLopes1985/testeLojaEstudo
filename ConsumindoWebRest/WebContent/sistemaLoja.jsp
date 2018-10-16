@@ -26,7 +26,7 @@ $(document).ready(function(){
 	}	
 	
 	function iniciar(){
-		url='json/livros.txt';		
+		url='Controle';		
 		$.get(url,function(data, status){
 			produtos= JSON.parse(data);
 			listaProdutos="";
@@ -104,7 +104,7 @@ $(document).ready(function(){
 
 <div class="container">
 	<div class="well">
-		<h3><img src="img/cart.png">&nbsp; Workshop Jquery - Cesta de Compras</h3>
+		<h3><img src="img/cart.png">&nbsp; Loja de artesanato - Cesta de Compras</h3>
 	</div>
 	
 <div class="row">
@@ -130,7 +130,7 @@ $(document).ready(function(){
 									<th>Imagem</th>
 									<th>Nome</th>
 									<th>Preço</th>
-									<th>Ação</th>
+									<th>Adicionar</th>
 								</tr>
 							</thead>			
 							<tbody>	
@@ -192,7 +192,26 @@ $(document).ready(function(){
 				 <div id="total" style="font-size:16pt" class="text-right"></div>
 				 <button id="enviar" class="btn btn-default">
 				 	<i class="fa fa-paper-plane"></i>
-				  Enviar para o Servidor</button>
+				  Enviar</button>
+				 <div id="mostrafim"></div>
+			</div>
+		 </div>
+	</div>	
+	
+		<div class="col-md-3 col-md-offset-1">		
+		<div class="panel panel-default">	
+			<div class="panel-heading">
+			<i class="fa fa-cart-arrow-down"></i>
+				  Frete:
+			</div>	
+			<div class="panel-body">			
+				 <div id="total" style="font-size:16pt" class="text-right"></div>
+				 <input type="text" name="cep"/>
+				 <br/>
+				 <br/>
+				 <button id="enviar" class="btn btn-default">
+				 	<i class="fa fa-paper-plane"></i>
+				  Calcular</button>
 				 <div id="mostrafim"></div>
 			</div>
 		 </div>

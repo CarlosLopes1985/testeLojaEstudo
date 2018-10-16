@@ -24,7 +24,7 @@ create database lojaArtesanato;
 use lojaArtesanato;
 
 create table itemPedido(
-	idVenda int primary key auto_increment,
+	idpedido int not null,
 	idProduto int not null, 
 	idCliente int not null,
 	enderecoEntrega int not null
@@ -41,6 +41,7 @@ create table produto(
 create table pedido(
 	idPedido int primary key auto_increment,
 	dataPedido date
+
 );
 
 insert into produto values(null,"livroJavaOracle",200,10,"img/1.jpg");
