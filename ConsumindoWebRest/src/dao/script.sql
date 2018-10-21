@@ -44,11 +44,11 @@ create table pedido(
 
 );
 
-insert into produto values(null,"livroJavaOracle",200,10,"img/1.jpg");
-insert into produto values(null,"livroDeitel",200,10,"img/2.jpg");
-insert into produto values(null,"livroJS",200,10,"img/3.jpg");
-insert into produto values(null,"livroFrintEnd",200,10,"img/4.jpg");
-insert into produto values(null,"livroJaspion",200,10,"img/5.jpg");
+insert into produto values(null,"Java Oracle",200,10,"img/1.jpg");
+insert into produto values(null," Deitel",200,10,"img/2.jpg");
+insert into produto values(null,"JS",200,10,"img/3.jpg");
+insert into produto values(null,"FrontEnd",200,10,"img/4.jpg");
+insert into produto values(null,"Jaspion",200,10,"img/5.jpg");
 
 
 

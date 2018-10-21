@@ -88,10 +88,18 @@ $(document).ready(function(){
 	
 	
 	$("#enviar").on('click',function(){
-		url='Controle';
+		url='Controle?cmd=gravarVenda';
 		$.post(url,"produtos=" +
 		 JSON.stringify(cesta.lstprodutos), function(data){
 			$("#mostrafim").html(data);
+		});		
+	});	
+
+	$("#calculaFrete").on('click',function(){
+		url='Controle?cmd=calcularFrete';
+		$.post(url,"produtos=" +
+		 JSON.stringify(cesta.lstprodutos), function(data){
+			$("#mostraValorFrete").html(data);
 		});		
 	});	
 });
@@ -209,10 +217,10 @@ $(document).ready(function(){
 				 <input type="text" name="cep"/>
 				 <br/>
 				 <br/>
-				 <button id="enviar" class="btn btn-default">
+				 <button id="calculaFrete" class="btn btn-default">
 				 	<i class="fa fa-paper-plane"></i>
 				  Calcular</button>
-				 <div id="mostrafim"></div>
+				 <div id="mostraValorFrete"></div>
 			</div>
 		 </div>
 	</div>		

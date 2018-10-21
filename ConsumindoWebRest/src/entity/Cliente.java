@@ -15,6 +15,7 @@ public class Cliente implements Serializable{
 	private String foto;
 	private Double total = 0.;
 	private ArrayList<Produto>lista;
+
 	public Integer getIdCliente() {
 		return idCliente;
 	}
